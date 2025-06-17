@@ -211,7 +211,7 @@ nav ul li.active a {
 
 .hero-content h2 {
   font-size: 2.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;padding:1cm;
   font-weight: 700;
 }
 
