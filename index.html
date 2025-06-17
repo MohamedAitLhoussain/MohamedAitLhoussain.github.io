@@ -6,6 +6,7 @@
     <title>Mon Site Éducatif - Accueil</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -29,32 +30,69 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h2>Bienvenue sur votre plateforme éducative</h2>
-                <p>Accédez à toutes vos ressources pédagogiques en un seul endroit</p>
-                <a href="#features" class="btn">Découvrir</a>
+                <h2>Plateforme Éducative Complète</h2>
+                <p>Toutes les ressources pédagogiques dont vous avez besoin, organisées et accessibles en un clic</p>
+                <div class="hero-buttons">
+                    <a href="cours.html" class="btn">Commencer</a>
+                    <a href="#features" class="btn btn-outline">En savoir plus</a>
+                </div>
             </div>
         </section>
 
-        <section id="features" class="features">
-            <div class="feature-card">
-                <i class="fas fa-book-open"></i>
-                <h3>Cours Complets</h3>
-                <p>Accédez à tous vos cours organisés par matière et par chapitre.</p>
+        <section id="features" class="container">
+            <h2 class="section-title">Nos Fonctionnalités</h2>
+            <p class="section-subtitle">Découvrez ce que nous offrons pour votre réussite</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Cours Complets</h3>
+                    <p>Des cours structurés avec supports PDF, vidéos et résumés interactifs.</p>
+                    <a href="cours.html" class="btn btn-accent">Accéder</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Exercices Interactifs</h3>
+                    <p>Des centaines d'exercices avec corrections détaillées et suivi de progression.</p>
+                    <a href="exercices.html" class="btn btn-accent">S'entraîner</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Devoirs Guidés</h3>
+                    <p>Des devoirs corrigés avec feedback personnalisé pour chaque élève.</p>
+                    <a href="devoirs.html" class="btn btn-accent">Voir les devoirs</a>
+                </div>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-pen-fancy"></i>
-                <h3>Exercices Variés</h3>
-                <p>Entraînez-vous avec des exercices corrigés et progressifs.</p>
+        </section>
+
+        <section class="container card">
+            <div class="card-header">
+                <h3 class="card-title">Dernières Annonces</h3>
+                <span class="badge">Nouveau</span>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Devoirs</h3>
-                <p>Consultez et rendez vos devoirs en ligne.</p>
+            <p>Le concours blanc commence le 15 novembre. Inscrivez-vous dès maintenant !</p>
+            <div class="card-buttons">
+                <a href="#" class="btn btn-warning">S'inscrire</a>
+                <a href="#" class="btn btn-outline">Voir le programme</a>
             </div>
         </section>
     </main>
 
     <footer>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
         <p>&copy; 2023 MonEcole. Tous droits réservés.</p>
     </footer>
 
