@@ -344,3 +344,11 @@ footer {
     color: var(--dark);
   }
 }
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2ea44f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
