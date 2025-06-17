@@ -208,10 +208,10 @@ nav ul li.active a {
   clip-path: ellipse(100% 60% at 50% 35%);
   margin-bottom: 3rem;
 }
-
+.hero-content{padding:1cm;}
 .hero-content h2 {
   font-size: 2.8rem;
-  margin-bottom: 1.5rem;padding:1cm;
+  margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
