@@ -3,19 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Éducatif - Mes Cours</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Mathématiques - Cours & Exercices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --success: #06d6a0;
+            --warning: #ffbe0b;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+        }
+
+        nav ul li a:hover {
+            background: rgba(58, 134, 255, 0.1);
+            color: var(--primary);
+        }
+
+        nav ul li.active a {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* Page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h2 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Math content */
+        .math-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .math-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .math-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .math-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .math-card-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+        }
+
+        .math-card-body {
+            padding: 1.5rem;
+        }
+
+        .math-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .math-card-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .math-card-footer {
+            padding: 0 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: #2a75e6;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(58, 134, 255, 0.1);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #e00063;
+        }
+
+        /* Math formulas */
+        .math-formula {
+            font-family: 'Source Code Pro', monospace;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.show {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>MonEcole</h1>
+            <i class="fas fa-square-root-alt"></i>
+            <h1>Mathématiques</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                <li class="active"><a href="cours.html"><i class="fas fa-book"></i> Mes Cours</a></li>
+                <li class="active"><a href="cours.html"><i class="fas fa-book"></i> Cours</a></li>
                 <li><a href="exercices.html"><i class="fas fa-pen"></i> Exercices</a></li>
                 <li><a href="devoirs.html"><i class="fas fa-tasks"></i> Devoirs</a></li>
                 <li><a href="annales.html"><i class="fas fa-file-alt"></i> Annales</a></li>
@@ -27,43 +308,149 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <h2>Mes Cours</h2>
-            <p>Retrouvez ici tous vos cours organisés par matière</p>
-        </section>
+        <!-- PAGE COURS -->
+        <div class="page-header">
+            <h2><i class="fas fa-book"></i> Mes Cours</h2>
+            <p>Tous les cours de mathématiques classés par niveau et par thème</p>
+        </div>
 
-        <section class="matieres">
-            <div class="matiere-card">
-                <h3><i class="fas fa-square-root-alt"></i> Mathématiques</h3>
-                <ul>
-                    <li><a href="#">Algèbre linéaire</a></li>
-                    <li><a href="#">Analyse</a></li>
-                    <li><a href="#">Probabilités</a></li>
-                </ul>
+        <div class="math-container">
+            <!-- Algèbre -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Algèbre</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Structures Algébriques</h4>
+                    <p class="math-card-desc">Groupes, anneaux, corps et espaces vectoriels</p>
+                    <div class="math-formula">
+                        ∀(a,b) ∈ G², a∗b ∈ G (loi interne)
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
             </div>
-            <div class="matiere-card">
-                <h3><i class="fas fa-flask"></i> Physique</h3>
-                <ul>
-                    <li><a href="#">Mécanique</a></li>
-                    <li><a href="#">Électromagnétisme</a></li>
-                    <li><a href="#">Thermodynamique</a></li>
-                </ul>
+
+            <!-- Analyse -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analyse</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Suites et Séries</h4>
+                    <p class="math-card-desc">Convergence, séries numériques, théorèmes fondamentaux</p>
+                    <div class="math-formula">
+                        lim<sub>n→∞</sub> (1 + 1/n)<sup>n</sup> = e
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
             </div>
-            <div class="matiere-card">
-                <h3><i class="fas fa-code"></i> Informatique</h3>
-                <ul>
-                    <li><a href="#">Algorithmique</a></li>
-                    <li><a href="#">Programmation Web</a></li>
-                    <li><a href="#">Bases de données</a></li>
-                </ul>
+
+            <!-- Géométrie -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-shapes"></i>
+                    <h3>Géométrie</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Géométrie Projective</h4>
+                    <p class="math-card-desc">Espaces projectifs, dualité, homographies</p>
+                    <div class="math-formula">
+                        P(V) = V\{0}/∼ où v∼w ⇔ ∃λ≠0, v=λw
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
             </div>
-        </section>
+
+            <!-- Probabilités -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-dice"></i>
+                    <h3>Probabilités</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Variables Aléatoires</h4>
+                    <p class="math-card-desc">Lois discrètes et continues, convergences</p>
+                    <div class="math-formula">
+                        P(X∈A) = ∫<sub>A</sub> f(x)dx
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
+            </div>
+
+            <!-- Algèbre Linéaire -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-vector-square"></i>
+                    <h3>Algèbre Linéaire</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Réduction des Endomorphismes</h4>
+                    <p class="math-card-desc">Valeurs propres, diagonalisation, théorème de Cayley-Hamilton</p>
+                    <div class="math-formula">
+                        det(A - λI) = 0
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
+            </div>
+
+            <!-- Topologie -->
+            <div class="math-card">
+                <div class="math-card-header">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Topologie</h3>
+                </div>
+                <div class="math-card-body">
+                    <h4 class="math-card-title">Espaces Métriques</h4>
+                    <p class="math-card-desc">Ouverts, fermés, compacité, complétude</p>
+                    <div class="math-formula">
+                        B(x,r) = {y∈X | d(x,y) < r}
+                    </div>
+                </div>
+                <div class="math-card-footer">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> PDF</a>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2023 MonEcole. Tous droits réservés.</p>
+    <footer style="background: var(--dark); color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
+        <p>© 2023 Mathématiques - Tous droits réservés</p>
+        <div style="margin-top: 1rem;">
+            <a href="#" style="color: white; margin: 0 0.5rem;"><i class="fab fa-github"></i></a>
+            <a href="#" style="color: white; margin: 0 0.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: white; margin: 0 0.5rem;"><i class="fas fa-envelope"></i></a>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Animation des cartes
+        const cards = document.querySelectorAll('.math-card');
+        cards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
 </body>
 </html>
